@@ -22,7 +22,7 @@
 #include <SPI.h>
 #include <Wire.h>
 #include <Adafruit_SSD1306.h>
-#include <Adafruit_ADS1015.h>
+#include <Adafruit_ADS1X15.h>
 #include <EEPROM.h>
 #include <RunningAverage.h>
 
