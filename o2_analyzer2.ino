@@ -29,7 +29,7 @@
 #define RA_SIZE 20
 RunningAverage RA(RA_SIZE);
 
-Adafruit_ADS1115 ads(0x48);
+Adafruit_ADS1115 ads;  // Creates the object without params
 
 #define OLED_RESET 4
 Adafruit_SSD1306 display(OLED_RESET);
@@ -91,11 +91,12 @@ void setup(void) {
   // Disable digital input buffers on all analog input pins
   // DIDR0 = DIDR0 | B00111111;
 
+  ads.begin(0x48); // ads1115 start with I2C address 0x48
+	
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
-  
+
   ads.setGain(GAIN_TWO);
   multiplier = 0.0625F;
-  ads.begin(); // ads1115 start
   
   pinMode(buttonPin,INPUT_PULLUP);  
   
